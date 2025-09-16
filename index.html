@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hallo Namaku Eddo</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+      color: black;
+      position: relative;
+      z-index: 2;
+      animation: naikTurun 2s infinite ease-in-out;
+    }
+
+    @keyframes naikTurun {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .love {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: jatuh 5s linear infinite;
+    }
+
+    @keyframes jatuh {
+      0% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>hallo namaku eddo</h1>
+
+  <script>
+    function buatLove() {
+      const love = document.createElement("div");
+      love.classList.add("love");
+      love.innerHTML = "❤";
+      love.style.left = Math.random() * 100 + "vw";
+      love.style.fontSize = (10 + Math.random() * 20) + "px";
+      love.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(love);
+
+      setTimeout(() => {
+        love.remove();
+      }, 5000);
+    }
+
+    setInterval(buatLove, 300);
+  </script>
+</body>
+</html>
