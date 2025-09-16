@@ -1,1 +1,76 @@
-# hallo-eddoo
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hallo Namaku Eddo</title>
+  <style>
+    body {
+      background-color: pink;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden; /* supaya love tidak bikin scroll */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: black;
+      font-size: 50px;
+      font-weight: bold;
+      position: relative;
+      z-index: 10; /* teks tetap di depan */
+      animation: naikTurun 2s infinite ease-in-out;
+    }
+
+    @keyframes naikTurun {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Gaya untuk love */
+    .love {
+      position: absolute;
+      color: red; /* merah */
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>hallo namaku eddo</h1>
+
+  <script>
+    // Membuat banyak love kecil-kecil
+    const totalLove = 50; // jumlah love
+    for (let i = 0; i < totalLove; i++) {
+      const love = document.createElement("div");
+      love.className = "love";
+      love.innerHTML = "❤";
+      love.style.left = Math.random() * 100 + "vw"; // posisi horizontal acak
+      love.style.fontSize = (12 + Math.random() * 24) + "px"; // ukuran acak
+      love.style.animationDuration = (3 + Math.random() * 5) + "s"; // durasi acak
+      love.style.animationDelay = Math.random() * 5 + "s"; // delay acak
+      document.body.appendChild(love);
+    }
+  </script>
+</body>
+</html>
